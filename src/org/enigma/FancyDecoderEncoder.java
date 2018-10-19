@@ -4,7 +4,10 @@ public class FancyDecoderEncoder implements EncoderDecoder {
 
     @Override
     public String encode(String input) {
-        return null;
+
+
+return null;
+
     }
 
     @Override
