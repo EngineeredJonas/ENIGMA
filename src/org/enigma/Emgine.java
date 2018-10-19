@@ -3,7 +3,9 @@ package org.enigma;
 public class Emgine {
 
     public static void main(final String[] args) {
-        System.out.println("Hello world");
+        final EncoderDecoder encoderDecoder = new FancyDecoderEncoder();
+
+        System.out.println(encoderDecoder.encode("Hello world"));
     }
 
 }
