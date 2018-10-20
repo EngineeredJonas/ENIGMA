@@ -110,7 +110,7 @@ public class Emgine {
                 add(outputField);
 
 */
-                JTextField Passwort = new JTextField(80) {
+                JPasswordField Passwort = new JPasswordField(80) {
                     {   //Eingabefeld Passwort
                         setSize(500, 50);
                         setLocation(250, 300);
