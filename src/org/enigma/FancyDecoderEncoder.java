@@ -8,9 +8,9 @@ public class FancyDecoderEncoder implements EncoderDecoder {
         StringBuilder output = new StringBuilder();
 
         for (int i= 0; i<input.length(); i++) {
-            char  original = input.charAt(i);
-            char encoded = (char)(original + 2);
-            output.append(encoded);
+                char  original = input.charAt(i);
+                char encoded = (char)(original + 2);
+                output.append(encoded);
         }
 
         return output.toString();
