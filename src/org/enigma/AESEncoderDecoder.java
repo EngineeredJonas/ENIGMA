@@ -64,6 +64,6 @@ public class AESEncoderDecoder implements EncoderDecoder
         String decrypted = cipher.decode((encrypted));
 
         System.out.println(decrypted);
-        
+
     }
 }
