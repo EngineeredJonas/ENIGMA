@@ -6,6 +6,8 @@ import javax.crypto.spec.SecretKeySpec;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.nio.charset.StandardCharsets;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.security.InvalidAlgorithmParameterException;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
@@ -52,8 +54,8 @@ public class AESEncoderDecoder implements EncoderDecoder {
 
 
             byte[] plaintext = Files.readAllBytes(input.toPath());
-            return encodeBytes(plaintext);
-
+            Files.write(Paths.get(input.getAbsolutePath() + ".encrypted"),  encodeBytes(plaintext).getBytes());
+            return "ok";
 
     }
 
