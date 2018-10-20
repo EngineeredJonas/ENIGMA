@@ -152,13 +152,13 @@ public class Emgine {
                             encoderDecoder.passwort(passwortfieldvalue);
                             try {
                                 String Encoded = encoderDecoder.encode(textFieldValue);
+                                inputField.setText(Encoded);
+                                Hallo.setText("Erfolgreich verschlüsselt!");
+                                Hallo.setForeground(Color.WHITE);
                             } catch (GeneralSecurityException e) {
                                 Hallo.setText("Fehler!");
                                 Hallo.setForeground(Color.RED);
                             }
-                            inputField.setText(Encoded);
-                            Hallo.setText("Erfolgreich verschlüsselt!");
-                            Hallo.setForeground(Color.WHITE);
                         }
                     }
                 })
@@ -196,14 +196,14 @@ public class Emgine {
 
                             encoderDecoder.passwort(passwortfieldvalue);
                                 try {
-                            String Encoded = encoderDecoder.decode(textFieldValue);
+                                    String Encoded = encoderDecoder.decode(textFieldValue);
+                                    inputField.setText(Encoded);
+                                    Hallo.setText("Erfolgreich entschlüsselt!");
+                                    Hallo.setForeground(Color.WHITE);
                                 } catch (GeneralSecurityException e) {
-                                    Hallo.setText("Fehler!");
+                                    Hallo.setText("Etwas hat nicht geklappt :/");
                                     Hallo.setForeground(Color.RED);
                                 }
-                            inputField.setText(Encoded);
-                            Hallo.setText("Erfolgreich entschlüsselt!");
-                            Hallo.setForeground(Color.WHITE);
                         }
                     }
                 })
