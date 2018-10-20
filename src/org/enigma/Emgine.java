@@ -102,6 +102,32 @@ public class Emgine {
                 }));
                 add(Button1);
 
+                JButton Button2 = ((new JButton(new AbstractAction("Foobar") {
+                    @Override
+                    public void actionPerformed(ActionEvent ae) {
+                        String textField = inputField.getText();
+                        System.out.println(textField);
+                        if (textField.length() == 0) {
+                            outputField.setText("");
+                        } else {
+                            String Encoded = encoderDecoder.decode(textField);
+                            outputField.setText(Encoded);
+                        }
+
+
+                    }
+                }) {
+                    {   //Button
+                        setSize(130, 50);
+                        setLocation(777, 300);
+                        setText("Decode");
+                        setFont(Button);
+
+
+                    }
+                }));
+                add(Button2);
+
 
                 add(new JLabel("Ausgabe") {
                     {  //Anzeigefeld für Output
