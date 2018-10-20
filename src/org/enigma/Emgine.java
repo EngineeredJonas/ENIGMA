@@ -9,6 +9,7 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
+import java.security.GeneralSecurityException;
 
 public class Emgine {
 //private Image backgroundImage;
@@ -110,7 +111,7 @@ public class Emgine {
                 add(outputField);
 
 */
-                JTextField Passwort = new JTextField(80) {
+                JPasswordField Passwort = new JPasswordField(80) {
                     {   //Eingabefeld Passwort
                         setSize(500, 50);
                         setLocation(250, 300);
@@ -142,13 +143,19 @@ public class Emgine {
                             inputField.setText("");
 
                             Hallo.setText("Eingabe vergessen!");
+                            Hallo.setForeground(Color.RED);
                         } else if (
                                 passwortfieldvalue.length() == 0) {
                             Hallo.setText("Passwort vergessen!");
                             Hallo.setForeground(Color.RED);
                         } else {
                             encoderDecoder.passwort(passwortfieldvalue);
-                            String Encoded = encoderDecoder.encode(textFieldValue);
+                            try {
+                                String Encoded = encoderDecoder.encode(textFieldValue);
+                            } catch (GeneralSecurityException e) {
+                                Hallo.setText("Fehler!");
+                                Hallo.setForeground(Color.RED);
+                            }
                             inputField.setText(Encoded);
                             Hallo.setText("Erfolgreich verschlüsselt!");
                             Hallo.setForeground(Color.WHITE);
@@ -188,7 +195,12 @@ public class Emgine {
                             {
 
                             encoderDecoder.passwort(passwortfieldvalue);
+                                try {
                             String Encoded = encoderDecoder.decode(textFieldValue);
+                                } catch (GeneralSecurityException e) {
+                                    Hallo.setText("Fehler!");
+                                    Hallo.setForeground(Color.RED);
+                                }
                             inputField.setText(Encoded);
                             Hallo.setText("Erfolgreich entschlüsselt!");
                             Hallo.setForeground(Color.WHITE);
