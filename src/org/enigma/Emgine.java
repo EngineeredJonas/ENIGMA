@@ -142,6 +142,7 @@ public class Emgine {
                             inputField.setText("");
 
                             Hallo.setText("Eingabe vergessen!");
+                            Hallo.setForeground(Color.RED);
                         } else if (
                                 passwortfieldvalue.length() == 0) {
                             Hallo.setText("Passwort vergessen!");
