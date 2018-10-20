@@ -42,11 +42,13 @@ public class Emgine {
                 setLayout(null);
                 setIconImage(ImageIO.read(ClassLoader.getSystemResourceAsStream("padlock.png")));
                 setResizable(false);
-                BufferedImage Background = ImageIO.read(ClassLoader.getSystemResourceAsStream("wallpapers-black-textures-hd-1024x576.jpg"));
 
+                BufferedImage Background = ImageIO.read(ClassLoader.getSystemResourceAsStream("wallpapers-black-textures-hd-1024x576.jpg"));
                 JLabel Label = new JLabel();
                 Label.setIcon(new ImageIcon(Background));
                 setContentPane(Label);
+
+                //BufferedImage Bild =
 
 
 
@@ -57,7 +59,7 @@ public class Emgine {
                 JTextField inputField = new JTextField(80) {
                     {   //Eingabefeld
                         setSize(500, 50);
-                        setLocation(250, 220);
+                        setLocation(250, 120);
                         setFont(font);
                     }
                 };
@@ -71,12 +73,24 @@ public class Emgine {
                 add(new JLabel("EMGINE") {
                     {  //Anzeigefeld für Input
                         setSize(600, 100);
-                        setLocation(230, 80);
+                        setLocation(230, 10);
                         setText(" Eingabe...");
                         setFont(font1);
                         setForeground(Color.WHITE);
                     }
                 });
+                JLabel Hallo = (new JLabel("Nötig für Verschlüsselung"){
+
+                    {
+                        setForeground(Color.WHITE);
+                        setSize(600,100);
+                        setLocation(250, 350);
+                        setFont(font);
+
+                    }
+                }
+                );
+                add(Hallo);
 
                 /*   JTextField outputField = (new JTextField(80) {
                     {
@@ -89,31 +103,50 @@ public class Emgine {
                     }
                 });
                 add(outputField);
+
 */
-                JButton Button1 = ((new JButton(new AbstractAction("Foobar") {
-                    @Override
-                    public void actionPerformed(ActionEvent ae) {
-                        String textFieldValue = inputField.getText();
-                        System.out.println(textFieldValue);
-                        if (textFieldValue.length() == 0) {
-                            inputField.setText("");
-                        } else {
-                            String Encoded = encoderDecoder.encode(textFieldValue);
-                            inputField.setText(Encoded);
-                        }
+                JTextField Passwort = new JTextField(80) {
+                    {   //Eingabefeld Passwort
+                        setSize(500, 50);
+                        setLocation(250, 300);
+                        setFont(font);
+                        setText("");
 
 
                     }
+                };
+                JButton Button1 = new JButton(new AbstractAction("Foobar") {
+
+                    @Override
+                    public void actionPerformed(ActionEvent ae) {
+                        String textFieldValue = inputField.getText();
+                        String passwortfieldvalue = Passwort.getText();
+                        System.out.println(textFieldValue);
+                        if (textFieldValue.length() == 0) {
+                            inputField.setText("");
+                        } else if (
+                                passwortfieldvalue.length() == 0) {
+                            Hallo.setText("Passwort vergessen!");
+                            Hallo.setForeground(Color.RED);
+                        } else {
+                            String Encoded = encoderDecoder.encode(textFieldValue);
+                            inputField.setText(Encoded);
+                            Hallo.setText("Erfolgreich verschlüsselt!");
+                            Hallo.setForeground(Color.WHITE);
+                        }
+                    }
                 }) {
+
                     {   //Button
                         setSize(130, 50);
-                        setLocation(777, 150);
+                        setLocation(777, 120);
                         setText("Encode");
                         setFont(font2);
 
 
                     }
-                }));
+                };
+
                 add(Button1);
 
                 JButton Button2 = ((new JButton(new AbstractAction("Foobar") {
@@ -145,7 +178,7 @@ public class Emgine {
                     {
                         //Feld für Passwort
                         setSize(600, 100);
-                        setLocation(250, 280);
+                        setLocation(250, 200);
                         setFont(font1);
                         setForeground(Color.WHITE);
                     }
@@ -153,17 +186,10 @@ public class Emgine {
 
 
                 );
-                JTextField Passwort = new JTextField(80) {
-                    {   //Eingabefeld Passwort
-                        setSize(500, 50);
-                        setLocation(250, 400);
-                        setFont(font);
-                        setText("Passwort");
 
-
-                    }
-                };
                 add(Passwort);
+
+
 
 
 
