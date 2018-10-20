@@ -10,10 +10,13 @@ import java.io.IOException;
 import java.nio.file.Files;
 
 public class Emgine {
-//private Image backgroundImage;
-    public static void main(final String[] args) throws IOException, FontFormatException {
+    private Image backgroundImage;
+
+    public static void main(final String[] args)   public Emgine(String "wallpapers-black-textures-hd-1024x576.jpg") throws IOException , FontFormatException {
         final EncoderDecoder encoderDecoder = new FancyDecoderEncoder();
-        //backgroundImage = ImageIO.read(new File());
+        backgroundImage = ImageIO.read(new File("wallpapers-black-textures-hd-1024x576.jpg"));
+
+
 
 //        System.out.println(encoderDecoder.encode("Hello world"));
         //Fonts
@@ -28,14 +31,15 @@ public class Emgine {
 
         new JFrame() {
             {
+
                 setTitle("Emgine");
                 setFont(Font.getFont(Font.SANS_SERIF));
                 setSize(1000, 500);
                 setMinimumSize(new Dimension(1000, 500));
                 setLocationRelativeTo(null);
                 setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-                setBackground(Color.cyan);
-                getContentPane().setBackground(Color.CYAN);
+                //setBackground(Color.cyan);
+                //getContentPane().setBackground(Color.CYAN);
                 setLayout(null);
                 setIconImage(ImageIO.read(ClassLoader.getSystemResourceAsStream("padlock.png")));
                 setResizable(false);
@@ -142,6 +146,10 @@ public class Emgine {
                 getRootPane().setDefaultButton(Button1);
 
 
+            }
+            //public void paintComponent(Graphics g) {
+               // super.paintComponent(g);
+               // g.drawImage(backgroundImage, 0, 0, this);
             }
 
             ;
