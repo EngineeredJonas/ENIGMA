@@ -5,6 +5,7 @@ import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
+import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -41,6 +42,15 @@ public class Emgine {
                 setLayout(null);
                 setIconImage(ImageIO.read(ClassLoader.getSystemResourceAsStream("padlock.png")));
                 setResizable(false);
+                BufferedImage Background = ImageIO.read(ClassLoader.getSystemResourceAsStream("wallpapers-black-textures-hd-1024x576.jpg"));
+
+                JLabel Label = new JLabel();
+                Label.setIcon(new ImageIcon(Background));
+                setContentPane(Label);
+
+
+
+
 
                 // TODO Backgroundimage
 
@@ -62,8 +72,9 @@ public class Emgine {
                     {  //Anzeigefeld für Input
                         setSize(600, 100);
                         setLocation(230, 80);
-                        setText(" Input");
+                        setText(" Eingabe...");
                         setFont(font1);
+                        setForeground(Color.WHITE);
                     }
                 });
 
@@ -129,6 +140,34 @@ public class Emgine {
 
                     }
                 }));
+                add(new JLabel("Passwort?"){
+
+                    {
+                        //Feld für Passwort
+                        setSize(600, 100);
+                        setLocation(250, 280);
+                        setFont(font1);
+                        setForeground(Color.WHITE);
+                    }
+                    }
+
+
+                );
+                JTextField Passwort = new JTextField(80) {
+                    {   //Eingabefeld Passwort
+                        setSize(500, 50);
+                        setLocation(250, 400);
+                        setFont(font);
+                        setText("Passwort");
+
+
+                    }
+                };
+                add(Passwort);
+
+
+
+
                 add(Button2);
 
 
