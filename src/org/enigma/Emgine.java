@@ -21,6 +21,7 @@ public class Emgine {
         Font Input = new Font("toll", Font.BOLD, 30);
         Font Button = new Font("Butt", Font.BOLD, 25);
         Font font = Font.createFont(Font.TRUETYPE_FONT, ClassLoader.getSystemResourceAsStream("ChakraPetch-Light.ttf")).deriveFont(30f);
+        Font font1 = Font.createFont(Font.TRUETYPE_FONT, ClassLoader.getSystemResourceAsStream("BaiJamjuree-Light.ttf")).deriveFont(60f);
 
         //TODO ChakraPetch. ttf verwenden
 
@@ -44,7 +45,7 @@ public class Emgine {
                 JTextField inputField = new JTextField(80) {
                     {   //Eingabefeld
                         setSize(500, 50);
-                        setLocation(250, 150);
+                        setLocation(250, 220);
                         setFont(font);
                     }
                 };
@@ -55,16 +56,16 @@ public class Emgine {
 
                 add(inputField);
 
-                add(new JLabel("Eingabe") {
+                add(new JLabel("EMGINE") {
                     {  //Anzeigefeld für Input
-                        setSize(100, 50);
-                        setLocation(250, 80);
+                        setSize(600, 100);
+                        setLocation(230, 80);
                         setText(" Input");
-                        setFont(Input);
+                        setFont(font1);
                     }
                 });
 
-                JTextField outputField = (new JTextField(80) {
+                /*   JTextField outputField = (new JTextField(80) {
                     {
                         //Outputfeld
                         setSize(500, 50);
@@ -75,17 +76,17 @@ public class Emgine {
                     }
                 });
                 add(outputField);
-
+*/
                 JButton Button1 = ((new JButton(new AbstractAction("Foobar") {
                     @Override
                     public void actionPerformed(ActionEvent ae) {
                         String textFieldValue = inputField.getText();
                         System.out.println(textFieldValue);
                         if (textFieldValue.length() == 0) {
-                            outputField.setText("");
+                            inputField.setText("");
                         } else {
                             String Encoded = encoderDecoder.encode(textFieldValue);
-                            outputField.setText(Encoded);
+                            inputField.setText(Encoded);
                         }
 
 
@@ -108,10 +109,10 @@ public class Emgine {
                         String textField = inputField.getText();
                         System.out.println(textField);
                         if (textField.length() == 0) {
-                            outputField.setText("");
+                            inputField.setText("");
                         } else {
                             String Encoded = encoderDecoder.decode(textField);
-                            outputField.setText(Encoded);
+                            inputField.setText(Encoded);
                         }
 
 
@@ -129,14 +130,14 @@ public class Emgine {
                 add(Button2);
 
 
-                add(new JLabel("Ausgabe") {
-                    {  //Anzeigefeld für Output
-                        setSize(110, 50);
-                        setLocation(250, 230);
-                        setText(" Output");
-                        setFont(Input);
-                    }
-                });
+               // add(new JLabel("Ausgabe") {
+                 //   {  //Anzeigefeld für Output
+                   //     setSize(110, 50);
+                     //   setLocation(250, 230);
+                       // setText(" Output");
+                        //setFont(Input);
+                   // }
+                //});
 
                 getRootPane().setDefaultButton(Button1);
 
