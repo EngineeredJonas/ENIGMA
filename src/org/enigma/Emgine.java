@@ -13,7 +13,7 @@ import java.nio.file.Files;
 public class Emgine {
 //private Image backgroundImage;
     public static void main(final String[] args) throws IOException, FontFormatException {
-        final EncoderDecoder encoderDecoder = new FancyDecoderEncoder();
+        final EncoderDecoder encoderDecoder = new AESEncoderDecoder();
         //backgroundImage = ImageIO.read(new File());
 
 //        System.out.println(encoderDecoder.encode("Hello world"));
