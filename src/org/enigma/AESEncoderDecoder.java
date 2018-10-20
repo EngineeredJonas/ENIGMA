@@ -8,6 +8,7 @@ import javax.xml.bind.DatatypeConverter;
 import java.nio.charset.StandardCharsets;
 import java.security.SecureRandom;
 import java.util.Arrays;
+import java.util.Base64;
 
 public class AESEncoderDecoder implements EncoderDecoder
 {
@@ -27,7 +28,7 @@ public class AESEncoderDecoder implements EncoderDecoder
             byte[] plaintext = input.getBytes(StandardCharsets.UTF_8);
             byte[] ciphertext = cipher.doFinal(plaintext);
 
-            return DatatypeConverter.printHexBinary(iv) + ':' + DatatypeConverter.printHexBinary(ciphertext);
+            return Base64.getEncoder().encodeToString(iv) + ':' + Base64.getEncoder().encodeToString(ciphertext);
         } catch (Exception e) {
             e.printStackTrace();
             return "";
@@ -38,13 +39,13 @@ public class AESEncoderDecoder implements EncoderDecoder
     public String decode(String input) {
         try {
             int colonIndex = input.indexOf(':');
-            String ivHex = input.substring(0, colonIndex);
-            String cipherHex = input.substring(colonIndex + 1);
+            String ivBase64 = input.substring(0, colonIndex);
+            String cipherBase64 = input.substring(colonIndex + 1);
 
             Cipher cipher = Cipher.getInstance("AES/GCM/NoPadding");
-            cipher.init(Cipher.DECRYPT_MODE, secretKey, new GCMParameterSpec(128, DatatypeConverter.parseHexBinary(ivHex)));
+            cipher.init(Cipher.DECRYPT_MODE, secretKey, new GCMParameterSpec(128, Base64.getDecoder().decode(ivBase64)));
 
-            byte[] plaintext = cipher.doFinal(DatatypeConverter.parseHexBinary(cipherHex));
+            byte[] plaintext = cipher.doFinal(Base64.getDecoder().decode(cipherBase64));
 
             return new String(plaintext, StandardCharsets.UTF_8);
         } catch (Exception e) {
@@ -57,12 +58,9 @@ public class AESEncoderDecoder implements EncoderDecoder
         EncoderDecoder cipher = new AESEncoderDecoder();
 
         String encrypted = cipher.encode("Hello World!");
-
         System.out.println(encrypted);
 
-
         String decrypted = cipher.decode((encrypted));
-
         System.out.println(decrypted);
 
     }
