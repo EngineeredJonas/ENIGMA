@@ -37,8 +37,8 @@ public class Emgine {
                 setMinimumSize(new Dimension(1000, 500));
                 setLocationRelativeTo(null);
                 setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-                setBackground(Color.cyan);
-                getContentPane().setBackground(Color.CYAN);
+                //setBackground(Color.cyan);
+                //getContentPane().setBackground(Color.CYAN);
                 setLayout(null);
                 setIconImage(ImageIO.read(ClassLoader.getSystemResourceAsStream("padlock.png")));
                 setResizable(false);
@@ -48,7 +48,12 @@ public class Emgine {
                 Label.setIcon(new ImageIcon(Background));
                 setContentPane(Label);
 
-                //BufferedImage Bild =
+               /* BufferedImage Bild = ImageIO.read(ClassLoader.getSystemResourceAsStream("Frame 4.png"));
+                JLabel Label2 = new JLabel();
+                Label2.setIcon(new ImageIcon(Bild));
+                setContentPane(Label2);
+                setLocation(40, 50);
+                */
 
 
 
