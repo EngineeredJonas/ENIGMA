@@ -22,8 +22,10 @@ public class Emgine {
         Font Button = new Font("Butt", Font.BOLD, 25);
         Font font = Font.createFont(Font.TRUETYPE_FONT, ClassLoader.getSystemResourceAsStream("ChakraPetch-Light.ttf")).deriveFont(30f);
         Font font1 = Font.createFont(Font.TRUETYPE_FONT, ClassLoader.getSystemResourceAsStream("BaiJamjuree-Light.ttf")).deriveFont(60f);
+        Font font2 = Font.createFont(Font.TRUETYPE_FONT, ClassLoader.getSystemResourceAsStream("Khand-Light.ttf")).deriveFont(30f);
 
-        //TODO ChakraPetch. ttf verwenden
+
+
 
 
         new JFrame() {
@@ -96,7 +98,7 @@ public class Emgine {
                         setSize(130, 50);
                         setLocation(777, 150);
                         setText("Encode");
-                        setFont(Button);
+                        setFont(font2);
 
 
                     }
@@ -122,7 +124,7 @@ public class Emgine {
                         setSize(130, 50);
                         setLocation(777, 300);
                         setText("Decode");
-                        setFont(Button);
+                        setFont(font2);
 
 
                     }
