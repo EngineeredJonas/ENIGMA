@@ -81,8 +81,84 @@ public class Emgine {
 
 
 
+                JLabel Hallo = (new JLabel("Nötig für Verschlüsselung"){
 
-                // TODO Backgroundimage
+                    {
+                        setForeground(Color.WHITE);
+                        setSize(600,100);
+                        setLocation(250, 350);
+                        setFont(font);
+
+                    }
+                }
+                );
+                add(Hallo);
+
+
+                JButton Button4 = new JButton(new AbstractAction() {
+                    @Override
+                    public void actionPerformed(ActionEvent ae) {
+                        JFileChooser Chooser = new JFileChooser();
+                        Chooser.setDialogTitle("Datei auswählen");
+
+                        int state = Chooser.showOpenDialog(null);
+                        if ( state == JFileChooser.APPROVE_OPTION )
+
+                        {
+                            File file = Chooser.getSelectedFile();
+                            try {
+
+                                encoderDecoder.decode(file);
+                            } catch (Exception e)
+                            { Hallo.setText("Erfolgreich entschlüsselt!");
+                                Hallo.setForeground(Color.WHITE);
+                                throw new RuntimeException(e);
+
+                            }
+
+                        }
+
+                    }
+
+                });
+                Button4.setFont(font2);
+                Button4.setSize(200, 40);
+                Button4.setText("Datei decrypt...");
+                Button4.setLocation(560,230 );
+                add(Button4);
+
+                JButton Button3 = new JButton(new AbstractAction() {
+                    @Override
+                    public void actionPerformed(ActionEvent ae) {
+                        JFileChooser Chooser = new JFileChooser();
+                        Chooser.setDialogTitle("Datei auswählen");
+
+                        int state = Chooser.showOpenDialog(null);
+                        if ( state == JFileChooser.APPROVE_OPTION )
+
+                        {
+                            File file = Chooser.getSelectedFile();
+                            try {
+
+                                encoderDecoder.encode(file);
+                            } catch (Exception e)
+                            { Hallo.setText("Erfolgreich verschlüsselt!");
+                            Hallo.setForeground(Color.WHITE);
+                                throw new RuntimeException(e);
+
+                            }
+
+                        }
+
+                    }
+
+                });
+                Button3.setFont(font2);
+                Button3.setSize(200, 40);
+                Button3.setText("Datei encrypt...");
+                Button3.setLocation(560,50 );
+                add(Button3);
+
 
                 JTextField inputField = new JTextField(80) {
                     {   //Eingabefeld
@@ -107,18 +183,6 @@ public class Emgine {
                         setForeground(Color.WHITE);
                     }
                 });
-                JLabel Hallo = (new JLabel("Nötig für Verschlüsselung"){
-
-                    {
-                        setForeground(Color.WHITE);
-                        setSize(600,100);
-                        setLocation(250, 350);
-                        setFont(font);
-
-                    }
-                }
-                );
-                add(Hallo);
 
                 /*   JTextField outputField = (new JTextField(80) {
                     {
