@@ -1,21 +1,14 @@
 package org.enigma;
 
 import javax.imageio.ImageIO;
-import javax.swing.AbstractAction;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JPasswordField;
-import javax.swing.JTabbedPane;
-import javax.swing.JTextField;
-import javax.swing.WindowConstants;
+import javax.swing.*;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.FontFormatException;
 import java.awt.event.ActionEvent;
+import java.awt.image.BufferedImage;
 import java.io.IOException;
 
 public class EmgineFrame extends JFrame {
@@ -33,10 +26,15 @@ public class EmgineFrame extends JFrame {
 
 
         setTitle("Emgine");
-        setSize(1200, 500);
+        setSize(1000, 500);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setIconImage(ImageIO.read(ClassLoader.getSystemResourceAsStream("padlock.png")));
+        //BufferedImage Background = ImageIO.read(ClassLoader.getSystemResourceAsStream("wallpapers-black-textures-hd-1024x576.jpg"));
+        //JLabel Label = new JLabel();
+        //Label.setIcon(new ImageIcon(Background));
+        //setContentPane(Label);
+
         add(new JPanel() {
             {
                 setLayout(new FlowLayout());
@@ -71,7 +69,7 @@ public class EmgineFrame extends JFrame {
                     setLayout(new BorderLayout());
                     add(new JPanel() {
                         {
-                            setPreferredSize(new Dimension(0, 20));
+                            setPreferredSize(new Dimension(0, 50));
                         }
                     }, BorderLayout.NORTH);
                     add(new JPanel() {
