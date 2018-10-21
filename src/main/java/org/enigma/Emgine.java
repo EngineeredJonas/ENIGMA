@@ -93,11 +93,27 @@ public class Emgine {
                 }
                 );
                 add(Hallo);
+                JPasswordField Passwort = new JPasswordField(80) {
+                    {   //Eingabefeld Passwort
+                        setSize(500, 50);
+                        setLocation(250, 300);
+                        setFont(font);
+                        setText("");
+
+
+                    }
+                };
 
 
                 JButton Button4 = new JButton(new AbstractAction() {
                     @Override
                     public void actionPerformed(ActionEvent ae) {
+                        String passvalue = Passwort.getText();
+                        if (passvalue.length() == 0){
+                            Hallo.setText("Passwort vergessen!");
+                            Hallo.setForeground(Color.red);
+                            return ;
+                        }
                         JFileChooser Chooser = new JFileChooser();
                         Chooser.setDialogTitle("Datei auswählen");
 
@@ -130,6 +146,13 @@ public class Emgine {
                 JButton Button3 = new JButton(new AbstractAction() {
                     @Override
                     public void actionPerformed(ActionEvent ae) {
+                       String passvalue = Passwort.getText();
+                       if (passvalue.length() == 0){
+                           Hallo.setText("Passwort vergessen!");
+                           Hallo.setForeground(Color.red);
+                           return ;
+                       }
+                       encoderDecoder.passwort(passvalue);
                         JFileChooser Chooser = new JFileChooser();
                         Chooser.setDialogTitle("Datei auswählen");
 
@@ -197,16 +220,7 @@ public class Emgine {
                 add(outputField);
 
 */
-                JPasswordField Passwort = new JPasswordField(80) {
-                    {   //Eingabefeld Passwort
-                        setSize(500, 50);
-                        setLocation(250, 300);
-                        setFont(font);
-                        setText("");
 
-
-                    }
-                };
 
                 add(new JFileChooser()
                     {
