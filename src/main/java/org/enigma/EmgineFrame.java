@@ -1,5 +1,6 @@
 package org.enigma;
 
+import javax.imageio.ImageIO;
 import javax.swing.AbstractAction;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -9,31 +10,81 @@ import javax.swing.JPasswordField;
 import javax.swing.JTabbedPane;
 import javax.swing.JTextField;
 import javax.swing.WindowConstants;
-import java.awt.BorderLayout;
-import java.awt.FlowLayout;
+import java.awt.*;
 import java.awt.event.ActionEvent;
+import java.io.IOException;
 
 public class EmgineFrame extends JFrame {
 
-    public EmgineFrame() {
+
+    public EmgineFrame() throws IOException, FontFormatException {
+
+        //Fonts
+        Font CENA = new Font("SansSerif", Font.BOLD, 30);
+        Font Input = new Font("toll", Font.BOLD, 30);
+        Font Button = new Font("Butt", Font.BOLD, 25);
+        Font font = Font.createFont(Font.TRUETYPE_FONT, ClassLoader.getSystemResourceAsStream("ChakraPetch-Light.ttf")).deriveFont(30f);
+        Font font1 = Font.createFont(Font.TRUETYPE_FONT, ClassLoader.getSystemResourceAsStream("BaiJamjuree-Light.ttf")).deriveFont(30f);
+        Font font2 = Font.createFont(Font.TRUETYPE_FONT, ClassLoader.getSystemResourceAsStream("Khand-Light.ttf")).deriveFont(30f);
+
+
+
         setTitle("Emgine");
-        setSize(1000, 500);
+        setSize(1200, 500);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        setIconImage(ImageIO.read(ClassLoader.getSystemResourceAsStream("padlock.png")));
         add(new JPanel() {
             {
                 setLayout(new FlowLayout());
-                add(new JLabel("Passwort:"));
-                add(new JPasswordField(30));
-                add(new JButton("Encode"));
-                add(new JButton("Decode"));
+                add(new JLabel("Passwort:")
+
+                {
+                    {
+                        setFont(font);
+
+                    }
+                });
+                add(new JPasswordField(30)
+                {
+                    {
+                        setFont(font);
+                    }
+                });
+
+                add(new JButton("Encode")
+                {
+                    {
+                        setFont(font1);
+                    }
+                });
+                add(new JButton("Decode")
+                {
+                    {
+                        setFont(font1);
+                    }
+                });
             }
         }, BorderLayout.NORTH);
+
         add(new JTabbedPane() {
             {
                 addTab("Text", new JPanel() {{
-                    add(new JLabel("Text"));
-                    add(new JTextField(30));
+
+                    add(new JLabel("Eingabe...")
+                    {
+                        {
+                            setFont(font);
+                        }
+                    });
+                    add(new JTextField(30)
+                    {
+                        {
+                            setFont(font);
+
+                        }
+
+                    });
                 }});
                 addTab("Datei", new JPanel() {{
                     add(new JButton(new AbstractAction("Datei auswählen") {
@@ -50,7 +101,7 @@ public class EmgineFrame extends JFrame {
         setVisible(true);
     }
 
-    public static void main(final String[] args) {
+    public static void main(final String[] args) throws IOException, FontFormatException {
         new EmgineFrame();
     }
 
