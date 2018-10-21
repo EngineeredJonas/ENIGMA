@@ -1,6 +1,6 @@
 package org.enigma;
 
-public class NoopEncoderDecoder implements EncoderDecoder {
+public abstract class NoopEncoderDecoder implements EncoderDecoder {
 
     @Override
     public String encode(String input) {

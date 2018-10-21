@@ -1,6 +1,6 @@
 package org.enigma;
 
-public class FancyDecoderEncoder implements EncoderDecoder {
+public abstract class FancyDecoderEncoder implements EncoderDecoder {
     @Override
     public String encode(String input) {
 
