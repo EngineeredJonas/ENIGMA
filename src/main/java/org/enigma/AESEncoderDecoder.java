@@ -120,11 +120,11 @@ public class AESEncoderDecoder implements EncoderDecoder {
 
         System.out.println("Dateitest");
 
-        //File f = new File(AESEncoderDecoder.class.getResource("rain.mp3").toURI());
-       // System.out.println(f.exists());
-       // System.out.println(cipher.encode(f));
+        File f = new File(AESEncoderDecoder.class.getResource("Video Test.mp4").toURI());
+        System.out.println(f.exists());
+        System.out.println(cipher.encode(f));
 
-        System.out.println(cipher.decode(new File(AESEncoderDecoder.class.getResource("Rain.mp3.encrypted").toURI())));
+        //System.out.println(cipher.decode(new File(AESEncoderDecoder.class.getResource("Rain.mp3.encrypted").toURI())));
 
     }
 }

@@ -14,7 +14,7 @@ import java.security.GeneralSecurityException;
 
 public class Emgine {
 //private Image backgroundImage;
-    public static void main(final String[] args) throws IOException, FontFormatException {
+    public static void main(final String[] args) throws Exception {
         final EncoderDecoder encoderDecoder = new AESEncoderDecoder();
         //backgroundImage = ImageIO.read(new File());
 
@@ -177,7 +177,7 @@ public class Emgine {
                                 inputField.setText(Encoded);
                                 Hallo.setText("Erfolgreich verschlüsselt!");
                                 Hallo.setForeground(Color.WHITE);
-                            } catch (GeneralSecurityException e) {
+                            } catch (Exception e) {
                                 Hallo.setText("Fehler!");
                                 Hallo.setForeground(Color.RED);
                             }
@@ -222,7 +222,7 @@ public class Emgine {
                                     inputField.setText(Encoded);
                                     Hallo.setText("Erfolgreich entschlüsselt!");
                                     Hallo.setForeground(Color.WHITE);
-                                } catch (GeneralSecurityException e) {
+                                } catch (Exception e) {
                                     Hallo.setText("Etwas hat nicht geklappt :/");
                                     Hallo.setForeground(Color.RED);
                                 }
