@@ -59,7 +59,7 @@ public class AESEncoderDecoder implements EncoderDecoder {
 
         byte[] plaintext = Files.readAllBytes(input.toPath());
         Files.write(Paths.get(input.getAbsolutePath() + ".encrypted"), encodeBytes(plaintext).getBytes());
-        return "ok";
+        return input.getAbsolutePath() + ".encrypted";
 
 
     }

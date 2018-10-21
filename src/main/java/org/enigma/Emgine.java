@@ -124,7 +124,8 @@ public class Emgine {
                             File file = Chooser.getSelectedFile();
                             try {
 
-                                encoderDecoder.decode(file);
+                                String result =   encoderDecoder.decode(file);
+                                Desktop.getDesktop().open(new File(result).getParentFile());
                             } catch (Exception e)
                             { Hallo.setText("Erfolgreich entschlüsselt!");
                                 Hallo.setForeground(Color.WHITE);
@@ -163,7 +164,8 @@ public class Emgine {
                             File file = Chooser.getSelectedFile();
                             try {
 
-                                encoderDecoder.encode(file);
+                             String result =   encoderDecoder.encode(file);
+                             Desktop.getDesktop().open(new File(result).getParentFile());
                             } catch (Exception e)
                             { Hallo.setText("Erfolgreich verschlüsselt!");
                             Hallo.setForeground(Color.WHITE);
