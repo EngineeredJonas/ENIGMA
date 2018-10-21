@@ -3,6 +3,7 @@ package org.enigma;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
+import javax.swing.text.JTextComponent;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.image.BufferedImage;
@@ -30,6 +31,18 @@ public class Emgine {
 
 
 
+
+       /*JTabbedPane Pane = new JTabbedPane();
+       Pane.setSize(500, 500);
+       Pane.setBackground(Color.BLACK);
+       Pane.addTab("LOL", );
+       Pane.setTitleAt(null, "Title");
+*/
+
+
+
+
+
         new JFrame() {
             {
                 setTitle("Emgine");
@@ -44,6 +57,7 @@ public class Emgine {
                 setIconImage(ImageIO.read(ClassLoader.getSystemResourceAsStream("padlock.png")));
                 setResizable(false);
 
+
                 BufferedImage Background = ImageIO.read(ClassLoader.getSystemResourceAsStream("wallpapers-black-textures-hd-1024x576.jpg"));
                 JLabel Label = new JLabel();
                 Label.setIcon(new ImageIcon(Background));
@@ -54,7 +68,15 @@ public class Emgine {
                 Label2.setIcon(new ImageIcon(Bild));
                 setContentPane(Label2);
                 setLocation(40, 50);
-                */
+               */
+
+
+
+
+
+
+
+
 
 
 
