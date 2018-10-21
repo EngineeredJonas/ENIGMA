@@ -10,7 +10,11 @@ import javax.swing.JPasswordField;
 import javax.swing.JTabbedPane;
 import javax.swing.JTextField;
 import javax.swing.WindowConstants;
-import java.awt.*;
+import java.awt.BorderLayout;
+import java.awt.Dimension;
+import java.awt.FlowLayout;
+import java.awt.Font;
+import java.awt.FontFormatException;
 import java.awt.event.ActionEvent;
 import java.io.IOException;
 
@@ -28,7 +32,6 @@ public class EmgineFrame extends JFrame {
         Font font2 = Font.createFont(Font.TRUETYPE_FONT, ClassLoader.getSystemResourceAsStream("Khand-Light.ttf")).deriveFont(30f);
 
 
-
         setTitle("Emgine");
         setSize(1200, 500);
         setLocationRelativeTo(null);
@@ -37,29 +40,24 @@ public class EmgineFrame extends JFrame {
         add(new JPanel() {
             {
                 setLayout(new FlowLayout());
-                add(new JLabel("Passwort:")
-
-                {
+                add(new JLabel("Passwort:") {
                     {
                         setFont(font);
 
                     }
                 });
-                add(new JPasswordField(30)
-                {
+                add(new JPasswordField(30) {
                     {
                         setFont(getFont().deriveFont(30f));
                     }
                 });
 
-                add(new JButton("Encode")
-                {
+                add(new JButton("Encode") {
                     {
                         setFont(font1);
                     }
                 });
-                add(new JButton("Decode")
-                {
+                add(new JButton("Decode") {
                     {
                         setFont(font1);
                     }
@@ -70,21 +68,29 @@ public class EmgineFrame extends JFrame {
         add(new JTabbedPane() {
             {
                 addTab("Text", new JPanel() {{
-
-                    add(new JLabel("Eingabe...")
-                    {
+                    setLayout(new BorderLayout());
+                    add(new JPanel() {
                         {
-                            setFont(font);
+                            setPreferredSize(new Dimension(0, 20));
+                        }
+                    }, BorderLayout.NORTH);
+                    add(new JPanel() {
+                        {
+                            add(new JLabel("Eingabe...") {
+                                {
+                                    setFont(font);
+                                }
+                            });
+                            add(new JTextField(30) {
+                                {
+                                    setFont(font);
+
+                                }
+
+                            });
                         }
                     });
-                    add(new JTextField(30)
-                    {
-                        {
-                            setFont(font);
 
-                        }
-
-                    });
                 }});
                 addTab("Datei", new JPanel() {{
                     add(new JButton(new AbstractAction("Datei auswählen") {
