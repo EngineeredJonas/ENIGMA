@@ -48,7 +48,7 @@ public class EmgineFrame extends JFrame {
                 add(new JPasswordField(30)
                 {
                     {
-                        setFont(font);
+                        setFont(getFont().deriveFont(30f));
                     }
                 });
 
