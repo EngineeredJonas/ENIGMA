@@ -89,6 +89,9 @@ public class AESEncoderDecoder implements EncoderDecoder {
 
     public byte[] decodeBytes(String input) throws NoSuchPaddingException, NoSuchAlgorithmException, BadPaddingException, IllegalBlockSizeException, InvalidAlgorithmParameterException, InvalidKeyException {
         int colonIndex = input.indexOf(':');
+        if(colonIndex == -1){
+            throw new IllegalArgumentException();
+        }
         String ivBase64 = input.substring(0, colonIndex);
         String cipherBase64 = input.substring(colonIndex + 1);
 
