@@ -2,11 +2,7 @@ package org.enigma;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
-import java.awt.BorderLayout;
-import java.awt.Dimension;
-import java.awt.FlowLayout;
-import java.awt.Font;
-import java.awt.FontFormatException;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
@@ -44,17 +40,37 @@ public class EmgineFrame extends JFrame {
 
                     }
                 });
-                add(new JPasswordField(30) {
+                JPasswordField passfield = new JPasswordField(30) {
                     {
                         setFont(getFont().deriveFont(30f));
                     }
-                });
+                };
+                add(passfield);
 
-                add(new JButton("Encode") {
+
+                JButton Button1 = new JButton(new AbstractAction() {
+                    @Override
+                    public void actionPerformed(ActionEvent ea) {
+                        //String valueA = Textfield.getText();
+                        //String valueB = passfield.getText();
+                        //if (valueA.length() == 0) {
+
+
+                        }
+
+
+
+                    }
+                })
+                 {
                     {
                         setFont(font1);
+
+
                     }
-                });
+                };
+                add(Button1);
+
                 add(new JButton("Decode") {
                     {
                         setFont(font1);
@@ -73,19 +89,20 @@ public class EmgineFrame extends JFrame {
                         }
                     }, BorderLayout.NORTH);
                     add(new JPanel() {
-                        {
+                        {    JTextField Textfield = new JTextField(30) {
+                            {
+                                setFont(font);
+
+                            }
+
+                        };
+                            add(Textfield);
                             add(new JLabel("Eingabe...") {
                                 {
                                     setFont(font);
                                 }
                             });
-                            add(new JTextField(30) {
-                                {
-                                    setFont(font);
 
-                                }
-
-                            });
                         }
                     });
 
