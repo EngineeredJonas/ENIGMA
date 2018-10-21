@@ -61,6 +61,7 @@ public class AESEncoderDecoder implements EncoderDecoder {
         Files.write(Paths.get(input.getAbsolutePath() + ".encrypted"), encodeBytes(plaintext).getBytes());
         return "ok";
 
+
     }
 
     public String encodeBytes(byte[] plaintext) throws NoSuchPaddingException, NoSuchAlgorithmException, BadPaddingException, IllegalBlockSizeException, InvalidKeyException {
@@ -105,7 +106,7 @@ public class AESEncoderDecoder implements EncoderDecoder {
         byte[] plaintext = decodeBytes(content);
         String decrytedfilename = input.getAbsolutePath().replaceAll(".encrypted", "");
         Files.write(Paths.get(decrytedfilename), plaintext);
-        return "ok!";
+        return decrytedfilename;
     }
 
     public static void main(String[] args) throws URISyntaxException, NoSuchPaddingException, InvalidKeyException, NoSuchAlgorithmException, IllegalBlockSizeException, BadPaddingException, InvalidAlgorithmParameterException, IOException {
@@ -120,7 +121,7 @@ public class AESEncoderDecoder implements EncoderDecoder {
 
         System.out.println("Dateitest");
 
-        File f = new File(AESEncoderDecoder.class.getResource("Video Test.mp4").toURI());
+        File f = new File(AESEncoderDecoder.class.getResource("/rain.mp3").toURI());
         System.out.println(f.exists());
         System.out.println(cipher.encode(f));
 
